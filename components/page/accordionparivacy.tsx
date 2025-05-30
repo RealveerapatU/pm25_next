@@ -14,9 +14,19 @@ export default function App() {
 
   return (
     <>
-      <p role="button"   onClick={onOpen} style={{ cursor: "pointer" }}>
+      <span
+        role="button"
+        tabIndex={0}
+        onClick={onOpen}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            onOpen();
+          }
+        }}
+        style={{ cursor: "pointer" }}
+      >
         Privacy and Policy
-      </p>
+      </span>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
@@ -27,13 +37,11 @@ export default function App() {
               <ModalBody>
                 <p>1.Collectiong about information in registeration page</p>
                 <p>2.Refund is not available for subscription plan</p>
-                
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
-         
               </ModalFooter>
             </>
           )}
