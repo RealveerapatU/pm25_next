@@ -34,11 +34,11 @@ export default function HomePage() {
                   Transform Your Ideas Into
                   <span className="text-primary"> Reality</span>
                 </h1>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Join thousands of creators who trust our platform to build,
+                {/* <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  Join thousands of creators who trust our platform to build
                   launch, and scale their projects. Start your journey with us
                   today and unlock unlimited possibilities.
-                </p>
+                </p> */}
               </div>
               <div className="space-x-4">
                 <Button size="lg" className="h-12 px-8">
