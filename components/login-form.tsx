@@ -80,7 +80,7 @@ export function LoginForm({
               </div>
               <div className="text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <a href="#" className="underline underline-offset-4">
+                <a href="login" className="underline underline-offset-4">
                   Sign up
                 </a>
               </div>
@@ -97,7 +97,7 @@ export function LoginForm({
       </Card>
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
         By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        and <a href="/">Privacy Policy</a>.
       </div>
     </div>
   );
