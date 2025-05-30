@@ -17,6 +17,7 @@ import {
   Shield,
   Users,
   Star,
+  Server,
 } from "lucide-react";
 import Link from "next/link";
 {
@@ -26,7 +27,7 @@ import Link from "next/link";
                   today and unlock unlimited possibilities.
                 </p> */
 }
-export default function HomePage() {
+export default function Page() {
   return (
     <div className="flex flex-col min-h-screen items-center">
       <main className="flex-1">
@@ -39,9 +40,12 @@ export default function HomePage() {
                   🚀 Get Started Today
                 </Badge>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Transform Your Ideas Into
-                  <span className="text-primary"> Reality</span>
+                  Get updated with real time air quality
+                  {/* <span className="text-primary"> Reality</span> */}
                 </h1>
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  Join us a real time air quality data is waiting for you.
+                </p>
               </div>
               <div className="space-x-4">
                 <Button size="lg" className="h-12 px-8">
@@ -108,59 +112,32 @@ export default function HomePage() {
               <Card>
                 <CardHeader>
                   <Zap className="h-10 w-10 text-primary" />
-                  <CardTitle>Lightning Fast</CardTitle>
+                  <CardTitle>Fast Realtime Data</CardTitle>
                   <CardDescription>
-                    Get up and running in minutes with our streamlined
-                    onboarding process.
+                    Get update with real time air quality data from sensors.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Quick setup wizard
+                      Real time database
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Pre-built templates
+                      Accurate
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      One-click deployment
+                      Low latency
                     </li>
                   </ul>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <Shield className="h-10 w-10 text-primary" />
-                  <CardTitle>Secure & Reliable</CardTitle>
-                  <CardDescription>
-                    Enterprise-grade security with 99.9% uptime guarantee for
-                    peace of mind.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      End-to-end encryption
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Regular backups
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      24/7 monitoring
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <Users className="h-10 w-10 text-primary" />
-                  <CardTitle>Team Collaboration</CardTitle>
+                  <Server className="h-10 w-10 text-primary" />
+                  <CardTitle> Reliable</CardTitle>
                   <CardDescription>
                     Work seamlessly with your team using our built-in
                     collaboration tools.
@@ -170,16 +147,50 @@ export default function HomePage() {
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Real-time editing
+                      Fast data processing
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Role-based permissions
+                      Fast data storage
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Activity tracking
+                      Fast network system
                     </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      Backup
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      Low latency
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <Shield className="h-10 w-10 text-primary" />
+                  <CardTitle>Secure & Reliable</CardTitle>
+                  <CardDescription>
+                    Your data is safe with us. We prioritize security and
+                    reliability in our platform.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      End-to-end encryption
+                    </li>
+                    {/* <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      Regular backups
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      24/7 monitoring
+                    </li> */}
                   </ul>
                 </CardContent>
               </Card>
