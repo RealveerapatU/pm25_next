@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -10,11 +10,16 @@ import {
   NavbarItem,
   Link,
   Button,
+  user,
 } from "@heroui/react";
 
 export default function App() {
+  const [username, setUsername] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    setUsername(storedUsername);
+  }, []);
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -62,38 +67,19 @@ export default function App() {
           </Link>
         </NavbarItem>
       </NavbarContent>
-
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="/login">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          {/* <Button as={Link} color="warning" href="/login" variant="flat">
-            Sign Up
-          </Button> */}
-        </NavbarItem>
+        {username === "" || username === null ? (
+          <NavbarItem className="hidden lg:flex">
+            <Link href="/login">Login</Link>
+          </NavbarItem>
+        ) : (
+          <NavbarItem>
+            <Button as={Link} color="warning" href="/login" variant="flat">
+              Sign Up
+            </Button>
+          </NavbarItem>
+        )}
       </NavbarContent>
-
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? "warning"
-                  : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
     </Navbar>
   );
 }
