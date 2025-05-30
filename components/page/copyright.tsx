@@ -1,4 +1,5 @@
 "use client";
+import ModalPrivacy from "@/components/page/accordionparivacy";
 export default function App() {
   return (
     <footer className="bg-white rounded-lg shadow-sm m-4 dark:bg-gray-800  ">
@@ -16,12 +17,10 @@ export default function App() {
               About
             </a>
           </li>
-          <li>
-            <a href="/" className="hover:underline me-4 md:me-6">
-              Privacy Policy
-            </a>
+          <li className="hover:underline me-4 md:me-6">
+            <ModalPrivacy />
           </li>
-          <li>
+          {/* <li>
             <a href="/" className="hover:underline me-4 md:me-6">
               Licensing
             </a>
@@ -30,7 +29,7 @@ export default function App() {
             <a href="/" className="hover:underline">
               Contact
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </footer>
