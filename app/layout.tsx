@@ -1,13 +1,10 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@heroui/link";
-import clsx from "clsx";
-
 import { Providers } from "./providers";
-
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
-import Navbar from "@/components/page/navbar"
+import Navbar from "@/components/page/navbar";
+import React from "react";
+import Copyright from "@/components/page/copyright";
 
 export const metadata: Metadata = {
   title: {
@@ -37,6 +34,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         <Providers>{children}</Providers>
+        <Copyright />
       </body>
     </html>
   );
