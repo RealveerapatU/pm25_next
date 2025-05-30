@@ -18,11 +18,6 @@ export default function App() {
         role="button"
         tabIndex={0}
         onClick={onOpen}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            onOpen();
-          }
-        }}
         style={{ cursor: "pointer" }}
       >
         Privacy and Policy
