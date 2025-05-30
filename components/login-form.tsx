@@ -89,6 +89,7 @@ export function LoginForm({
           <div className="relative hidden bg-muted md:block">
             <img
               src="https://media.istockphoto.com/id/1333701004/photo/air-quality-index.jpg?s=612x612&w=0&k=20&c=J50qZ2MMJcWql70VRYdAuB4oIh8H5UdfwqAOQvoyyh4="
+              alt=""
               className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
             />
           </div>
