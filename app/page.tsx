@@ -185,7 +185,7 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+        {/* <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -286,7 +286,7 @@ export default function HomePage() {
               </Card>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -332,7 +332,7 @@ export default function HomePage() {
       </main>
 
       {/* Footer */}
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+      {/* <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-muted-foreground">
           © 2024 StartUp. All rights reserved.
         </p>
@@ -344,7 +344,7 @@ export default function HomePage() {
             Privacy
           </Link>
         </nav>
-      </footer>
+      </footer> */}
     </div>
   );
 }
