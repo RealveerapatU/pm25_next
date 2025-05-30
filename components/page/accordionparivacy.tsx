@@ -10,14 +10,14 @@ import {
 } from "@heroui/react";
 
 export default function App() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-      <p onClick={onOpen} style={{ cursor: "pointer" }}>
+      <p role="button"   onClick={onOpen} style={{ cursor: "pointer" }}>
         Privacy and Policy
       </p>
-      <Modal isOpen={isOpen} onOpenChange={onClose}>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -27,11 +27,13 @@ export default function App() {
               <ModalBody>
                 <p>1.Collectiong about information in registeration page</p>
                 <p>2.Refund is not available for subscription plan</p>
+                
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
+         
               </ModalFooter>
             </>
           )}
