@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { motion } from "framer-motion";
+
 import {
   Card,
   CardContent,
@@ -17,7 +19,13 @@ import {
   Star,
 } from "lucide-react";
 import Link from "next/link";
-
+{
+  /* <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  Join thousands of creators who trust our platform to build
+                  launch, and scale their projects. Start your journey with us
+                  today and unlock unlimited possibilities.
+                </p> */
+}
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen items-center">
@@ -34,11 +42,6 @@ export default function HomePage() {
                   Transform Your Ideas Into
                   <span className="text-primary"> Reality</span>
                 </h1>
-                {/* <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Join thousands of creators who trust our platform to build
-                  launch, and scale their projects. Start your journey with us
-                  today and unlock unlimited possibilities.
-                </p> */}
               </div>
               <div className="space-x-4">
                 <Button size="lg" className="h-12 px-8">
@@ -46,7 +49,7 @@ export default function HomePage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
 
-                {/* <Button variant="outline" size="lg" className="h-12 px-8">
+                {/* <Button  variant="outline" size="lg" className="h-12 px-8">
                   Watch Demo
                 </Button> */}
               </div>
