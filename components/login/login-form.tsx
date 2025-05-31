@@ -86,8 +86,8 @@ export function LoginForm({
               Login with Google
             </Button> */}
             <p className="text-center text-sm text-gray-500 mt-4">
-              Don't have an account?{" "}
-              <a href="/" className="underline text-blue-600">
+              Don&apos;t have an account?{" "}
+              <a href="/register" className="underline text-blue-600">
                 Sign up
               </a>
             </p>
