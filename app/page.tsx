@@ -27,7 +27,7 @@ import { ArrowRight, CheckCircle, Zap, Shield, Server } from "lucide-react";
 
 export default function Page() {
   return (
-    <div className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth">
+    <div className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth flex-auto">
       {" "}
       <motion.section
         className="min-h-screen snap-center flex flex-col justify-center items-center bg-black px-4 md:px-6 text-center text-white"
@@ -45,7 +45,7 @@ export default function Page() {
           </Badge>{" "}
         </motion.div>{" "}
         <motion.h1
-          className="text-7xl md:text-7xl lg:text-7xl font-bold tracking-tighter mb-4"
+          className="text-3xl md:text-3xl lg:text-3xl font-bold tracking-tighter mb-4"
           variants={fadeInUp}
         >
           {" "}
