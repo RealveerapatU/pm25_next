@@ -10,27 +10,21 @@ import {
   NavbarItem,
   Link,
   Button,
-  user,
 } from "@heroui/react";
 
 export default function App() {
   const [username, setUsername] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     setUsername(storedUsername);
   }, []);
+
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    { label: "Home", path: "/" },
+    { label: "pm 2.5", path: "/" },
+    { label: "Subscription", path: "/" },
   ];
 
   return (
@@ -47,28 +41,43 @@ export default function App() {
         </NavbarBrand>
       </NavbarContent>
 
+      <NavbarMenu className="sm:hidden">
+        {menuItems.map((item) => (
+          <NavbarMenuItem key={item.label}>
+            <Link href={item.path}>{item.label}</Link>
+          </NavbarMenuItem>
+        ))}
+
+        {username === "" || username === null ? (
+          <NavbarMenuItem>
+            <Link href="/login">Login</Link>
+          </NavbarMenuItem>
+        ) : (
+          <NavbarMenuItem>
+            <Button as={Link} color="warning" href="/login" variant="flat">
+              Sign Up
+            </Button>
+          </NavbarMenuItem>
+        )}
+      </NavbarMenu>
+
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <a href="/">
-          <NavbarBrand>
-            <p className="font-bold text-inherit">AirQualityMeasure</p>
-          </NavbarBrand>
-        </a>
-        <NavbarItem>
-          <Link color="foreground" href="/">
-            Home
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link aria-current="page" href="/">
-            pm 2.5
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/">
-            Subscription
-          </Link>
-        </NavbarItem>
+        <NavbarBrand>
+          <p className="font-bold text-inherit">AirQualityMeasure</p>
+        </NavbarBrand>
+        {menuItems.map((item) => (
+          <NavbarItem key={item.label}>
+            <Link
+              href={item.path}
+              color="foreground"
+              aria-current={item.label === "pm 2.5" ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
+
       <NavbarContent justify="end">
         {username === "" || username === null ? (
           <NavbarItem className="hidden lg:flex">
