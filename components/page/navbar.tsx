@@ -48,9 +48,11 @@ export default function App() {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand>
-          <p className="font-bold text-inherit">AirQualityMeasure</p>
-        </NavbarBrand>
+        <a href="/">
+          <NavbarBrand>
+            <p className="font-bold text-inherit">AirQualityMeasure</p>
+          </NavbarBrand>
+        </a>
         <NavbarItem>
           <Link color="foreground" href="/">
             Home
@@ -62,7 +64,7 @@ export default function App() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/">
             Subscription
           </Link>
         </NavbarItem>

@@ -11,15 +11,15 @@ import { ArrowRight, CheckCircle, Zap, Shield, Server } from "lucide-react";
 
 export default function Page() {
   return (
-    <div className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth bg-orange-300">
-      <section className="min-h-screen snap-center flex flex-col justify-center items-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 px-4 md:px-6 text-center">
+    <div className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth ">
+      <section className="min-h-screen snap-center flex flex-col justify-center items-center bg-black px-4 md:px-6 text-center text-white">
         <Badge variant="secondary" className="mb-4">
           🚀 Get Started Today
         </Badge>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4">
-          Get updated with real time air quality
+          Get updated with Realtime Air Quality
         </h1>
-        <p className="max-w-[700px] text-muted-foreground md:text-xl mb-6">
+        <p className="max-w-[700px] text-muted-foreground md:text-xl mb-6 text-white">
           Join us, real-time air quality data is waiting for you.
         </p>
         <div className="flex flex-col md:flex-row gap-4 ">
