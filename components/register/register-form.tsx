@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import Router, { useRouter } from "next/router";
 import {
   Card,
   CardContent,
@@ -16,26 +17,34 @@ require("dotenv").config();
 
 export async function login(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
+
   const data = new FormData(e.currentTarget);
   const username = data.get("email") as string;
   const inpassword = data.get("password") as string;
-
-  const response = await axios.post(
-    `${process.env.NEXT_PUBLIC_PM25_API_URL}/api/user`,
-    { email: username }
-  );
-
-  if (response.status === 200) {
-    const responseData = await response.data.user;
-    const userRecord = responseData[0][0];
-    const savedPassword = userRecord.passwords;
-
-    if (inpassword === savedPassword) {
-      alert("Access Granted");
-      return;
+  const confinpassword = data.get("confirmpassword") as string;
+  if (inpassword === confinpassword) {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_PM25_API_URL}/api/user`,
+      { email: username }
+    );
+    const datarespones = response.data;
+    if (datarespones.user[0].length === 0) {
+      const ressregister = await axios.post(
+        `${process.env.NEXT_PUBLIC_PM25_API_URL}/api/registeration`,
+        {
+          email: username,
+          password: inpassword,
+        }
+      );
+      if (ressregister.status === 201) {
+        alert("Registered redirecting to login");
+        window.location.href = "/login";
+        return;
+      }
+      alert("Failed to register");
     }
-    alert("Access Denied");
-    return;
+    alert(" email has already taken");
+    // console.log(datarespones);
   }
 }
 
@@ -53,7 +62,7 @@ export function LoginForm({
     >
       <Card className="w-full max-w-md shadow-lg border border-gray-200">
         <CardHeader>
-          <CardTitle className="text-3xl text-center">Login</CardTitle>
+          <CardTitle className="text-3xl text-center">Registration</CardTitle>
           <CardDescription className="text-center text-sm text-gray-600">
             Enter your email and password to access your account
           </CardDescription>
@@ -73,11 +82,25 @@ export function LoginForm({
             <div className="grid gap-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <a href="/" className="text-sm text-blue-500 hover:underline">
+                {/* <a href="/" className="text-sm text-blue-500 hover:underline">
                   Forgot password?
-                </a>
+                </a> */}
               </div>
-              <Input name="password" id="password" type="password" required />
+              <Input
+                name="password"
+                id="password"
+                type="password"
+                placeholder="**********"
+                required
+              />
+              <Label htmlFor="confirmpassword"> Confirm Password</Label>
+              <Input
+                name="confirmpassword"
+                id="confirmpassword"
+                type="password"
+                placeholder="**********"
+                required
+              />
             </div>
             <Button type="submit" className="w-full">
               Login
@@ -86,9 +109,9 @@ export function LoginForm({
               Login with Google
             </Button> */}
             <p className="text-center text-sm text-gray-500 mt-4">
-              Don't have an account?{" "}
-              <a href="/" className="underline text-blue-600">
-                Sign up
+              Have an account?{" "}
+              <a href="/login" className="underline text-blue-600">
+                Sign in
               </a>
             </p>
           </form>

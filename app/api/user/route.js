@@ -5,6 +5,7 @@ export async function POST(request) {
   try {
     const { email } = await request.json();
     const result = await db.query("SELECT * FROM users WHERE email=?", [email]);
+
     return NextResponse.json(
       { message: "User retrieved successfully", user: result },
       { status: 200 }
