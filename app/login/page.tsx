@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Loginforms from "@/components/login/login";
+import {LoginForm} from "@/components/login/login-form";
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -16,7 +16,7 @@ const fadeInUp = {
 export default function Page() {
   return (
     <motion.section variants={fadeInUp} initial="hidden" whileInView="visible">
-      <Loginforms />
+      <LoginForm />
     </motion.section>
   );
 }

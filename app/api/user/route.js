@@ -3,14 +3,11 @@ import { mysqlpool } from "../../../utils/server";
 const db = mysqlpool.promise();
 export async function POST(request) {
   try {
-    const { email, password } = await request.json();
-    const result = await db.query(
-      "INSERT INTO users (email, passwords) VALUES (?, ?)",
-      [email, password]
-    );
+    const { email } = await request.json();
+    const result = await db.query("SELECT * FROM users WHERE email=?", [email]);
     return NextResponse.json(
-      { message: "User registered successfully" },
-      { status: 201 }
+      { message: "User retrieved successfully", user: result },
+      { status: 200 }
     );
   } catch (error) {
     console.error("Error:", error);
