@@ -11,6 +11,12 @@ import {
   Link,
   Button,
 } from "@heroui/react";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@heroui/react";
 
 export default function App() {
   const [username, setUsername] = useState<string | null>(null);
@@ -87,13 +93,29 @@ export default function App() {
             </NavbarItem>
           ) : (
             <NavbarItem>
-              <Button as={Link} color="warning" href="/profile" variant="flat">
+              {/* <Button as={Link} color="warning" href="/profile" variant="flat">
                 {username}
-              </Button>
+              </Button> */}
+              <Dropdown>
+                <DropdownTrigger>
+                  <Button variant="bordered">{username}</Button>
+                </DropdownTrigger>
+                <DropdownMenu
+                  aria-label="Example with disabled actions"
+                  disabledKeys={["edit", "delete"]}
+                >
+                  <DropdownItem key="new" onClick={logout}>
+                    Log out
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
             </NavbarItem>
           )}
         </NavbarContent>
       </Navbar>
     </div>
   );
+}
+function logout() {
+  localStorage.removeItem("pm25username");
 }

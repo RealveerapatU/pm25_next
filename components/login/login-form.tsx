@@ -83,9 +83,7 @@ export function LoginForm({
             <Button type="submit" className="w-full">
               Login
             </Button>
-            {/* <Button variant="outline" className="w-full">
-              Login with Google
-            </Button> */}
+
             <p className="text-center text-sm text-gray-500 mt-4">
               Don&apos;t have an account?{" "}
               <a href="/register" className="underline text-blue-600">
