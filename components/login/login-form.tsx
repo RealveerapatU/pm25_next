@@ -31,6 +31,7 @@ export async function login(e: React.FormEvent<HTMLFormElement>) {
     const savedPassword = userRecord.passwords;
 
     if (inpassword === savedPassword) {
+      localStorage.setItem("pm25username", username);
       alert("Access Granted");
       return;
     }

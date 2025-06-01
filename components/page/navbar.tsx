@@ -17,9 +17,9 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
+    const storedUsername = localStorage.getItem("pm25username");
     setUsername(storedUsername);
-  }, []);
+  }, [username]);
 
   const menuItems = [
     { label: "Home", path: "/" },
