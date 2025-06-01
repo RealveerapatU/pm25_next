@@ -46,10 +46,13 @@ export function LoginForm({
 }: React.ComponentPropsWithoutRef<"div">) {
   return (
     <div
-      className={cn("flex items-center justify-center  mt-10  px-8", className)}
+      className={cn(
+        "flex items-center justify-center  min-h-screen  px-8",
+        className
+      )}
       {...props}
     >
-      <Card className="w-full max-w-md shadow-lg border border-gray-200">
+      <Card className="w-auto max-w-md shadow-lg border border-gray-200">
         <CardHeader>
           <CardTitle className="text-3xl text-center">Login</CardTitle>
           <CardDescription className="text-center text-sm text-gray-600">

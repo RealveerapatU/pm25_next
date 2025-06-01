@@ -41,7 +41,7 @@ export default function Page() {
           </Badge>
         </motion.div>
         <motion.h1
-          className="text-3xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-4"
+          className="text-3xl md:text-6xl lg:text-8xl font-bold tracking-tighter mb-4"
           variants={fadeInUp}
         >
           <Typewriter
