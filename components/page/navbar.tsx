@@ -52,16 +52,13 @@ export default function App() {
               <Link href={item.path}>{item.label}</Link>
             </NavbarMenuItem>
           ))}
-
           {username === "" || username === null ? (
             <NavbarMenuItem>
               <Link href="/login">Login</Link>
             </NavbarMenuItem>
           ) : (
             <NavbarMenuItem>
-              <Button as={Link} color="warning" href="/login" variant="flat">
-                Sign Up
-              </Button>
+              <Link href="/profile">{username}</Link>
             </NavbarMenuItem>
           )}
         </NavbarMenu>
@@ -85,13 +82,13 @@ export default function App() {
 
         <NavbarContent justify="end">
           {username === "" || username === null ? (
-            <NavbarItem className="hidden lg:flex">
+            <NavbarItem>
               <Link href="/login">Login</Link>
             </NavbarItem>
           ) : (
             <NavbarItem>
-              <Button as={Link} color="warning" href="/login" variant="flat">
-                Sign Up
+              <Button as={Link} color="warning" href="/profile" variant="flat">
+                {username}
               </Button>
             </NavbarItem>
           )}
