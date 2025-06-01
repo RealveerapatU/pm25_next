@@ -29,19 +29,22 @@ export default function Page() {
   return (
     <div className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth flex-auto">
       <motion.section
-        className="min-h-screen snap-center flex flex-col justify-center items-center bg-gradient-to-b from-black via-gray-900 to-black px-4 md:px-6 text-center text-white"
+        className="min-h-screen snap-center flex flex-col justify-center items-center bg-gradient-to-b from-[#2c2c2c] via-[#1a1a1a] to-[#000000] px-4 md:px-6 text-center text-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
       >
         <motion.div variants={fadeInUp}>
-          <Badge variant="secondary" className="mb-4">
+          <Badge
+            variant="secondary"
+            className="mb-4 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-400 text-black shadow-md"
+          >
             🚀 Get Started Today
           </Badge>
         </motion.div>
         <motion.h1
-          className="text-3xl md:text-6xl lg:text-8xl font-bold tracking-tighter mb-4"
+          className="text-3xl md:text-6xl lg:text-8xl font-bold tracking-tighter mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-300 via-white to-gray-300"
           variants={fadeInUp}
         >
           <Typewriter
@@ -56,7 +59,7 @@ export default function Page() {
           />
         </motion.h1>
         <motion.p
-          className="max-w-[700px] text-muted-foreground md:text-xl mb-6 text-white"
+          className="max-w-[700px] text-white/70 md:text-xl mb-6"
           variants={fadeInUp}
         >
           Join us, real-time air quality data is waiting for you.
@@ -66,14 +69,19 @@ export default function Page() {
           variants={fadeInUp}
         >
           <a href="#features">
-            <Button size="lg">Learn more</Button>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-gray-600 via-gray-300 to-gray-600 text-black shadow-lg hover:brightness-110"
+            >
+              Learn more
+            </Button>
           </a>
         </motion.div>
       </motion.section>
 
       <motion.section
         id="features"
-        className="min-h-screen snap-center py-16 px-4 md:px-6 bg-white"
+        className="min-h-screen snap-center py-16 px-4 md:px-6 bg-gradient-to-b from-white via-gray-100 to-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -84,9 +92,9 @@ export default function Page() {
       >
         <div className="mx-auto grid max-w-5xl items-start gap-6 lg:grid-cols-3 lg:gap-12">
           <motion.div variants={fadeInUp}>
-            <Card>
+            <Card className="bg-gradient-to-br from-gray-100 via-white to-gray-300 shadow-lg border border-gray-300">
               <CardHeader>
-                <Zap className="h-10 w-10 text-primary" />
+                <Zap className="h-10 w-10 text-gray-700" />
                 <CardTitle>Fast Realtime Data</CardTitle>
                 <CardDescription>
                   Get update with real time air quality data from sensors.
@@ -108,9 +116,9 @@ export default function Page() {
           </motion.div>
 
           <motion.div variants={fadeInUp}>
-            <Card>
+            <Card className="bg-gradient-to-br from-gray-100 via-white to-gray-300 shadow-lg border border-gray-300">
               <CardHeader>
-                <Server className="h-10 w-10 text-primary" />
+                <Server className="h-10 w-10 text-gray-700" />
                 <CardTitle>Scalable Infrastructure</CardTitle>
                 <CardDescription>
                   Our platform is built on a scalable infrastructure to handle
@@ -137,9 +145,9 @@ export default function Page() {
           </motion.div>
 
           <motion.div variants={fadeInUp}>
-            <Card>
+            <Card className="bg-gradient-to-br from-gray-100 via-white to-gray-300 shadow-lg border border-gray-300">
               <CardHeader>
-                <Shield className="h-10 w-10 text-primary" />
+                <Shield className="h-10 w-10 text-gray-700" />
                 <CardTitle>Secure & Reliable</CardTitle>
                 <CardDescription>
                   Your data is safe with us. We prioritize security and
