@@ -1,4 +1,5 @@
 "use client";
+import NextLink from "next/link";
 import React, { useEffect, useState } from "react";
 import {
   Navbar,
@@ -25,7 +26,7 @@ export default function App() {
   useEffect(() => {
     const storedUsername = localStorage.getItem("pm25username");
     setUsername(storedUsername);
-  }, [username]);
+  }, []);
 
   const menuItems = [
     { label: "Home", path: "/" },
@@ -89,7 +90,11 @@ export default function App() {
         <NavbarContent justify="end">
           {username === "" || username === null ? (
             <NavbarItem>
-              <Link href="/login">Login</Link>
+              <NextLink href="/login">
+                <Button variant="bordered" as="div">
+                  Log in
+                </Button>
+              </NextLink>
             </NavbarItem>
           ) : (
             <NavbarItem>
@@ -118,4 +123,5 @@ export default function App() {
 }
 function logout() {
   localStorage.removeItem("pm25username");
+  window.location.reload();
 }

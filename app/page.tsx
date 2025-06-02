@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import BG from "@/public/image.png";
 import Typewriter from "typewriter-effect";
 import {
   Card,
@@ -29,7 +30,12 @@ export default function Page() {
   return (
     <div className="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth flex-auto">
       <motion.section
-        className="min-h-screen snap-center flex flex-col justify-center items-center bg-gradient-to-b from-[#2c2c2c] via-[#1a1a1a] to-[#000000] px-4 md:px-6 text-center text-white"
+        className="min-h-screen snap-center flex flex-col justify-center items-center px-4 md:px-6 text-center text-white"
+        style={{
+          backgroundImage: `url(${BG.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -38,13 +44,14 @@ export default function Page() {
         <motion.div variants={fadeInUp}>
           <Badge
             variant="secondary"
-            className="mb-4 bg-gradient-to-r from-gray-400 via-gray-100 to-gray-400 text-black shadow-md"
+            className="mb-4 bg-white/90 text-black shadow-md font-semibold tracking-wide"
           >
             🚀 Get Started Today
           </Badge>
         </motion.div>
+
         <motion.h1
-          className="text-3xl md:text-6xl lg:text-8xl font-bold tracking-tighter mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-300 via-white to-gray-300"
+          className="text-4xl md:text-6xl lg:text-8xl font-extrabold tracking-tight mb-4 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]"
           variants={fadeInUp}
         >
           <Typewriter
@@ -58,12 +65,14 @@ export default function Page() {
             }}
           />
         </motion.h1>
+
         <motion.p
-          className="max-w-[700px] text-white/70 md:text-xl mb-6"
+          className="max-w-[700px] text-white/90 md:text-xl mb-6 font-light drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
           variants={fadeInUp}
         >
           Join us, real-time air quality data is waiting for you.
         </motion.p>
+
         <motion.div
           className="flex flex-col md:flex-row gap-4"
           variants={fadeInUp}
@@ -71,7 +80,7 @@ export default function Page() {
           <a href="#features">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-gray-600 via-gray-300 to-gray-600 text-black shadow-lg hover:brightness-110"
+              className="bg-white/90 text-black font-semibold shadow-lg hover:bg-white"
             >
               Learn more
             </Button>
