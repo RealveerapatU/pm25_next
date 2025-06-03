@@ -30,8 +30,8 @@ export default function App() {
 
   const menuItems = [
     { label: "Home", path: "/" },
-    { label: "pm 2.5", path: "/" },
-    { label: "Subscription", path: "/" },
+    { label: "P.M. 2.5", path: "/" },
+    { label: "subscription", path: "/subscription" },
   ];
 
   return (
