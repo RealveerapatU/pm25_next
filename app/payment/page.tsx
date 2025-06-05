@@ -19,9 +19,12 @@ let plan = "";
 
 const checkPlan = async (username: string | null) => {
   try {
-    const response = await axios.post("http://localhost:3000/api/user", {
-      email: username,
-    });
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_PM25_API_URL}/api/user`,
+      {
+        email: username,
+      }
+    );
     if (response.status === 200) {
       const data = response.data;
       const user = data.user[0][0];
