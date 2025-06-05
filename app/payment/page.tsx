@@ -1,8 +1,7 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,17 +12,43 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Wifi, Shield } from "lucide-react";
-import { purchaseWifiAccess } from "@/lib/actions";
+let plan = "";
+
+const checkPlan = async (username: string | null) => {
+  try {
+    const response = await axios.post("http://localhost:3000/api/user", {
+      email: username,
+    });
+    if (response.status === 200) {
+      const data = response.data;
+      const user = data.user[0][0];
+      plan = user.email;
+      // console.log(user.email);
+    }
+  } catch (error) {
+    console.error("Error checking plan:", error);
+  }
+};
 
 export default function PaymentPage() {
   const router = useRouter();
-  const [selectedPlan, setSelectedPlan] = useState("hourly");
+  const [selectedPlan, setSelectedPlan] = useState("Free");
   const [email, setEmail] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+
+  useEffect(() => {
+    const username = localStorage.getItem("pm25username");
+    if (!username) {
+      alert("Please login first");
+      router.push("/login");
+      return;
+    }
+    setEmail(username);
+    checkPlan(username);
+  }, [router]);
 
   const plans = {
     Free: {
@@ -31,11 +56,10 @@ export default function PaymentPage() {
       price: "$0",
       duration: "Free plan with limited access",
     },
-
     Premium: {
       name: "Premium",
       price: "$3",
-      duration: "Premium plan includes everything.Provide unlimited access",
+      duration: "Premium plan includes everything. Provide unlimited access",
     },
   };
 
@@ -44,14 +68,12 @@ export default function PaymentPage() {
     setIsProcessing(true);
 
     try {
-      console.log("Your plan:" + selectedPlan);
-      // await purchaseWifiAccess({
-      //   plan: selectedPlan,
-      //   email,
-      // });
+      console.log("Selected Plan:", selectedPlan);
+      // await purchaseWifiAccess({ plan: selectedPlan, email });
       // router.push("/payment/success");
     } catch (error) {
       console.error("Payment failed:", error);
+    } finally {
       setIsProcessing(false);
     }
   };
@@ -108,22 +130,6 @@ export default function PaymentPage() {
                     </div>
                   ))}
                 </RadioGroup>
-
-                {/* <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                  <p className="text-xs text-gray-500">
-                    We'll send your receipt and access instructions to this
-                    email
-                  </p>
-                </div> */}
               </div>
 
               <div className="mt-6">

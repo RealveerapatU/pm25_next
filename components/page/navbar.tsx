@@ -31,7 +31,7 @@ export default function App() {
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "P.M. 2.5", path: "/" },
-    { label: "subscription", path: "/subscription" },
+    { label: "Subscription", path: "/payment" },
   ];
 
   return (
@@ -49,7 +49,7 @@ export default function App() {
 
         <NavbarContent className="sm:hidden pr-3" justify="center">
           <NavbarBrand>
-            <p className="font-bold text-inherit">AirQualityMeasure</p>
+            <p className="font-bold text-inherit">AQMconnect</p>
           </NavbarBrand>
         </NavbarContent>
 
@@ -72,7 +72,7 @@ export default function App() {
 
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavbarBrand>
-            <p className="font-bold text-inherit">AirQualityMeasure</p>
+            <p className="font-bold text-inherit">AQMConnect</p>
           </NavbarBrand>
           {menuItems.map((item) => (
             <NavbarItem key={item.label}>
