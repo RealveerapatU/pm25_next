@@ -60,16 +60,18 @@ export default function PaymentPage() {
           const data = response.data;
           if (data.user[0].length === 0) {
             localStorage.removeItem("pm25username");
-            alert("401 unauthorized");
-            window.location.href = `/login`;
-
+            localStorage.removeItem("pm25username");
+            setTimeout(() => {
+              //alert("401 unauthorized");
+              window.location.href = `/login`;
+            }, 100);
             return;
           }
         }
       } catch (error) {
         console.log(error);
       }
-    }, 5000);
+    }, 2500);
 
     // if (!username) {
     //   alert("Please login first");
