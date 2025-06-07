@@ -24,6 +24,10 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   useEffect(() => {
+    const validateUser = setInterval(() => {
+      const storedUsername = localStorage.getItem("pm25username");
+      setUsername(storedUsername);
+    }, 1000);
     const storedUsername = localStorage.getItem("pm25username");
     setUsername(storedUsername);
   }, []);

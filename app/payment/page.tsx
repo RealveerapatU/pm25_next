@@ -28,6 +28,11 @@ const checkPlan = async (username: string | null) => {
     if (response.status === 200) {
       const data = response.data;
       const user = data.user[0][0];
+      if (data.user[0].length === 0) {
+        alert("401 unauthorized");
+        window.location.href = `/login`;
+        return;
+      }
       plan = user.email;
       // console.log(user.email);
     }
@@ -43,15 +48,38 @@ export default function PaymentPage() {
   const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
+    const validateUser = setInterval(async () => {
+      const username = localStorage.getItem("pm25username");
+      setEmail(username!);
+      try {
+        const response = await axios.post(
+          `${process.env.NEXT_PUBLIC_PM25_API_URL}/api/user`,
+          { email: username }
+        );
+        if (response.status === 200) {
+          const data = response.data;
+          if (data.user[0].length === 0) {
+            localStorage.removeItem("pm25username");
+            alert("401 unauthorized");
+            window.location.href = `/login`;
+
+            return;
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }, 5000);
+
+    // if (!username) {
+    //   alert("Please login first");
+    //   router.push("/login");
+    //   return;
+    // }
     const username = localStorage.getItem("pm25username");
-    if (!username) {
-      alert("Please login first");
-      router.push("/login");
-      return;
-    }
-    setEmail(username);
+    setEmail(username!);
     checkPlan(username);
-  }, [router]);
+  }, []);
 
   const plans = {
     Free: {
